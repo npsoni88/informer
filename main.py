@@ -14,7 +14,12 @@ def main():
         for line in contents:
             if "PRETTY_NAME" in line:
                 os_name_full = line
-        print("Your Operating System is: " + os_name_full.split("=")[1])
+    f.close()
+    print("Your Operating System is: " + os_name_full.split("=")[1])
+
+    f1 = open("/proc/sys/kernel/hostname")
+    hostname = f1.readlines()
+    print("Your hostname is: " + str(hostname))
 
 
 if __name__ == "__main__":
